@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import requests
 import json
 
@@ -34,6 +33,3 @@ jprint(response.json())
 
 
 
-=======
-This is a test
->>>>>>> aa8679c7e1a917c662932fb164d37fbe1b5546ef
