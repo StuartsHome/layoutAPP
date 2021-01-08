@@ -3,6 +3,7 @@ import json
 
 url = "https://api.spacexdata.com/v4/landpads"
 response = requests.get(url)
+#wiki = response.json()['wikipedia']
 
 
 
@@ -19,16 +20,22 @@ which makes it easier to understand the JSON output.
 '''
 
 
-
-
 def jprint(obj):
     # create a formatted string of the Python JSON object
     text = json.dumps(obj, sort_keys=True, indent=4)
     print(text)
 
+aa = response.json()
 
-print(response.status_code)
-jprint(response.json())
+
+times = []
+
+for i in aa:
+    times.append(i['name'])
+    times.append(i['region'])
+
+
+print(times)
 
 
 
