@@ -1,9 +1,4 @@
-
 import re
-
-
-
-
 
 def read_file(file, a, b):
     b_found = False
@@ -13,9 +8,35 @@ def read_file(file, a, b):
     second = ""
     i = 0
     with open(file) as open_file:
-        f = open_file.readlines()
-        while i < len(f):
-            
+        #f = open_file.readlines()
+
+        d = {}
+        for line in open_file:
+            x = line.split()
+            if len(x) < 3:
+                continue
+            (key, val, aa) = line.split()
+            d[int(key)] = [int(val), int(aa)]
+
+
+        while i < 10000 and  a != b:
+            print("a: ", a, "b: ", d[a], "dist: ", d[a][1])
+            distance += d[a][1]
+            a = d[a][0]
+            print(a,b)
+            #print(distance, a)
+            i += 1   
+        print(distance)
+
+
+
+        #for key, value in d.items():
+        #    print(key, value[1]))
+
+        #print(d[876500321][1])
+
+        """
+        while i < len(f): 
             if f[i].startswith(match_a):
                 #print("this is f[i]", f[i])
                 splitter = f[i].split()
@@ -29,10 +50,10 @@ def read_file(file, a, b):
                 print("a: ", match_a, "second: ", second, "distance: ", distance)
             i += 1
         print("Final Distance: ", distance)
-
+        """
 
         """
-        for line in open_file:
+        for line in open_file:=
             splitter = line.split()
             if line.startswith(match_a):
                 
