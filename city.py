@@ -19,7 +19,7 @@ def read_file(file, a, b):
             d[int(key)] = [int(val), int(aa)]
 
 
-        while i < 10000 and  a != b:
+        while i < 100000 and  a != b:
             print("a: ", a, "b: ", d[a], "dist: ", d[a][1])
             distance += d[a][1]
             a = d[a][0]
