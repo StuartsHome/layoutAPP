@@ -1,9 +1,4 @@
-
-
-
-
 import sys
-
 
 # Function to find out which of the unvisited node
 # needs to be visited next
@@ -14,9 +9,9 @@ def to_be_visited():
     # Choosing the vertex with the minimum distance
 
     for index in range(number_of_vertices):
-        if visted_and_distance[index][0] == 0 \
-            and (V < 0 or visited_and_distance[index][1] <= \
-            visited_and_distance[v][1]):
+        if visited_and_distance[index][0] == 0 \
+        and (v < 0 or visited_and_distance[index][1] <= \
+        visited_and_distance[v][1]):
             v = index
     return v
 
@@ -53,10 +48,10 @@ for vertex in range(number_of_vertices):
                 + edges[to_visit][neighbour_index]
                 # Updating the distance of the neighbour if its current distance
                 # is greater than the distance that has just been calculated
-                if visited_and_distance[neighbour_index][1] > new_distance:
-                    visited_and_distance[neighbour_index][1] = new_distance
+            if visited_and_distance[neighbour_index][1] > new_distance:
+                visited_and_distance[neighbour_index][1] = new_distance
     # Visiting the vertex found earlier
-    visited_and_distance[0] = 1
+    visited_and_distance[to_visit][0] = 1
 
 i = 0
 
@@ -67,29 +62,11 @@ for distance in visited_and_distance:
         " from the source vertex a is:", distance[1])
     i = i + 1
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # To Do
 # First see if the algo worrks
 # Second to see differences between other implementations - possibly using file
 # - instead of adjaceny matrix
 # Thirdly Implement algorithm using Citymapper constraints
-
-
-
 
 if __name__ == '__main__':
     pass
