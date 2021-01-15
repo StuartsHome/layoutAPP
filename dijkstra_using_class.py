@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 class Graph:
     def __init__(self):
         self.nodes = set()
@@ -12,7 +14,7 @@ class Graph:
         self.edges[to_node].append(from_node)
         self.distances[(from_node, to_node)] = distance
 
-def dijsktra(graph, initial):
+def dijkstra(graph, initial):
     visited = {initial: 0}
     path = {}
 
@@ -39,3 +41,4 @@ def dijsktra(graph, initial):
             visited[edge] = weight
             path[edge] = min_node
     return visited, path
+
