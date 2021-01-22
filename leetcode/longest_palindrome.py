@@ -46,7 +46,7 @@ class Solution:
             tmp = self.helper(s, i, i+1)
             if len(tmp) > len(res):
                 res = tmp
-        return res
+        print(res)
 
     # get the longest palindrome, l, r are the middle indexes   
     # from inner to outer
