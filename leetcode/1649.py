@@ -11,17 +11,17 @@ class Solution:
                 x += x & -x
 
         def get(x):
-            res = 0
+            result = 0
             while (x > 0):
-                res += c[x]
+                result += c[x]
                 x -= x & -x
-            return res
+            return result
 
-        res = 0
+        result = 0
         for i, a in enumerate(instructions):
-            res += min(get(a - 1), i - get(a))
+            result += min(get(a - 1), i - get(a))
             update(a)
-        print(res % (10**9 + 7))
+        print(result % (10**9 + 7))
 
 
 
