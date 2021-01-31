@@ -1,28 +1,55 @@
 
 # Leetcode 781. Rabbits in Forest
-
+from collections import Counter
 class Solution:
     def numRabbits(self, answers):
+
+        # Answer taken from discussions
+        c = Counter()
+        res = 0
+        for i in answers:
+            if c[i] % (i + 1) == 0:
+                res += i + 1
+            c[i] += 1
+        return res
+
+        # My answer that does not work !!!!
         memo = {}
-        total = 0
-        total2 = 0
+        total1 = 0
+        total2 = len(answers)
         for i in answers:
             if i in memo:
-                memo[i] += 1
-                total += i
+                if memo[i] == 0:
+                    memo[i] += 1
+                else:
+                    memo[i] -= 1
+                total1 += 1
             else:
                 memo[i] = 1
-                total += i
-        for i in memo.values():
-            total2 += i
+                
+
+        for i in memo:
+            if memo[i] > 0:
+                total2 += (i * memo[i]) - (len(answers) - total1)
         print(total2)
-        print(memo, total)
-        
-        
-       
 
 Run = Solution()
-Run.numRabbits([10,10,10])
+Run.numRabbits([1, 1, 2])
+
+([10,10,10])
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ([1, 1, 2])
 
