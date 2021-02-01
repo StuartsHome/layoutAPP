@@ -4,16 +4,29 @@ from collections import Counter
 class Solution:
     def numRabbits(self, answers):
 
+        intt1 = "00000000000000000000000000001011"
+        
+        print(intt1)
+        for i in intt1:
+            if i == "1":
+                print(i)
+        #for i in intt1:
+        #    print(i)
+
+
+
         # Answer taken from discussions
         c = Counter()
-        res = 0
+        """
+        result = 0
         for i in answers:
             if c[i] % (i + 1) == 0:
-                res += i + 1
+                result += i + 1
             c[i] += 1
-        return res
-
+        print(result)
+        """
         # My answer that does not work !!!!
+        """
         memo = {}
         total1 = 0
         total2 = len(answers)
@@ -32,6 +45,7 @@ class Solution:
             if memo[i] > 0:
                 total2 += (i * memo[i]) - (len(answers) - total1)
         print(total2)
+        """
 
 Run = Solution()
 Run.numRabbits([1, 1, 2])
