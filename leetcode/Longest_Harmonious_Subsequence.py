@@ -55,6 +55,6 @@ class Solution:
 
 
 Run = Solution()
-Run.findLHS([1,1,1,1])
+Run.findLHS([1,3,2,2,5,2,3,7])
+([1,1,1,1])
 
-([1,3,2,2,5,2,3,7])
