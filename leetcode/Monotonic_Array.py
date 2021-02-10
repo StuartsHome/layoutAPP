@@ -24,6 +24,20 @@ class Solution:
                 return False
         return True 
 
+        # Code below from discussions
+        # Slower than my implimintation, but easier to read
+        """
+        increasing = decreasing = True
+
+        for i in range(len(A) - 1):
+            if A[i] > A[i+1]:
+                increasing = False
+            if A[i] < A[i+1]:
+                decreasing = False
+
+        return increasing or decreasing
+        """
+
 
 
 
