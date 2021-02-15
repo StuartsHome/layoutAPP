@@ -19,6 +19,7 @@ class Solution:
         
         for i in range(k):
             key_to_delete = min(memo, key=lambda k: memo[k])
+            # alternative "del d[max(d, key=d.get)]"
             result.append(key_to_delete)
             del memo[key_to_delete]
         print(result)
