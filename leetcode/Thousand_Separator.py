@@ -6,8 +6,9 @@ class Solution:
         # code from discussions
         s=str(n)
         s=s[::-1]
-        res = '.'.join(s[i:i + 3] for i in range(0, len(s), 3))
-        return res[::-1]
+        #res = '.'.join(s[i:i + 3] for i in range(0, len(s), 3))
+        yy = (s[i:i + 3] for i in range(0, len(s), 3))
+        xx = '.'.join(yy)
 
 
 Run = Solution()
