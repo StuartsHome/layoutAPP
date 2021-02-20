@@ -17,9 +17,32 @@ class Solution:
         root.right = self.bstFromPreorder(preorder[i:])
         return root
 
+
+        # Solution 2.
+        # Iteration of solution 1. using a for loop instead of a while loop also,
+        # uses another function within the main function provided
+        # Not sure if 1. or 2. is more efficient
+
+        """
+        def preorder_search(order_list):
+            if not order_list:
+                return None
+            root = TreeNode(order_list[0])
+            index = len(order_list) #if no right child found, all the nodes will be left child
+            for i in range(len(order_list)): #find the index that divides the preorder list to left and right child
+                if order_list[i] > root.val:
+                    index = i
+                    break
+            root.left = preorder_search(order_list[1:index])
+            root.right = preorder_search(order_list[index:])
+            return root
+        return preorder_search(preorder)
+        """
+
         # Below Solution using left and right variables
         # instead of using the slice function
 
+        # Solution 3.
         """
         if not preorder:
             return None
@@ -41,6 +64,8 @@ class Solution:
         
         return root
         """
+
+
 
 
 Run = Solution()
