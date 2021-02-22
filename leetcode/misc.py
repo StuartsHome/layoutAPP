@@ -4,3 +4,9 @@ for k, v in knights.items():
 
 print(list(knights))
 print(knights)
+
+# Sorting on len of Dict
+
+cars = ['Ford', 'BMW', 'Volvo']
+cars.sort(key=len)
+print(cars)

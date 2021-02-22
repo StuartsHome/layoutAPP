@@ -12,13 +12,14 @@ class Solution:
         return ans + X-Y
 
         # Solution 2. Recursion, better than 99% of submissions
+        """
         if X > Y: return X - Y
         if X == Y: return 0
         if Y % 2 == 0:
             return self.brokenCalc(X, Y//2) + 1
         else:
             return self.brokenCalc(X, Y + 1) + 1
-
+        """
         # My solution below - doesn't work
         """
         steps = 0
@@ -44,4 +45,5 @@ class Solution:
 
 
 Run = Solution()
-Run.brokenCalc(5, 8)
+Run.brokenCalc(1024, 1)
+(5, 8)
