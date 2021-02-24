@@ -13,25 +13,25 @@ class Solution:
 
         return stack.pop()
 
-        # My approach - not currently working
-        stack = []
-        lookup = {")": "(", "}":"{", "]":"["}
-        score = 0
-        for i in S:
-            if i == "(" or i == "{" or i == "[":
-                stack.append(i)
-            # elif len(stack) < 1:
-            # 	return False
-            else:
-                temp = stack.pop()
-                if lookup[i] != temp:
-                    return False
-                else:
-                    if stack:
-                        score = score + (2 * len(stack))
-                    else:
-                        score += 1
-        return not stack and score
+        # # My approach - not currently working
+        # stack = []
+        # lookup = {")": "(", "}":"{", "]":"["}
+        # score = 0
+        # for i in S:
+        #     if i == "(" or i == "{" or i == "[":
+        #         stack.append(i)
+        #     # elif len(stack) < 1:
+        #     # 	return False
+        #     else:
+        #         temp = stack.pop()
+        #         if lookup[i] != temp:
+        #             return False
+        #         else:
+        #             if stack:
+        #                 score = score + (2 * len(stack))
+        #             else:
+        #                 score += 1
+        # return not stack and score
 		
 p1 = Solution()
 p1.scoreOfParentheses("(()(()))")
