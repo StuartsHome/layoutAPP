@@ -74,7 +74,7 @@ def read_file(file, a, b):
 
 
 if __name__ == '__main__':
-    read_file("citymapper-coding-test-graph.dat", 876500321, 1524235806)
+    read_file("city_input.dat", 876500321, 1524235806)
 
 
 
