@@ -2,6 +2,9 @@
 
 class Solution():
     def findLongestWord(self, s, d):
+        # Lambda sorts by the length of the word
+        # If two words of same length, they are sorted Lexicographically, i.e. alphabetically
+
         d.sort(key = lambda x: (-len(x), x))
         for word in d:
             i = 0
