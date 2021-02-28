@@ -8,8 +8,8 @@ class Solution():
         d.sort(key = lambda x: (-len(x), x))
         for word in d:
             i = 0
-            for c in s:
-                if i < len(word) and word[i] == c:
+            for char in s:
+                if i < len(word) and word[i] == char:
                     i += 1
             if i == len(word):
                 return word
