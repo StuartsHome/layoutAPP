@@ -84,27 +84,6 @@ print(x)
 
 
 
-
-class Solution:
-	def permute(self, nums):
-		if len(nums) <= 1:
-			return[nums]
-
-		answer = []
-		for i, val in enumerate(nums):
-			num = nums[:i] + nums[i+1:]
-			for y in self.permute(num):
-				answer.append([val]+y)
-		
-		return answer
-
-
-
-
-p1 = Solution()
-p1.permute([1,2,3])
-
-
 #########
 class Solution:
 	def lcp(self, strs):
@@ -261,29 +240,6 @@ def romanToInt(n):
 
 
 
-
-
-
-
-class Solution:
-	def permute(self, nums):
-
-		if len(nums) <= 1:
-			return[nums]
-		
-		memo = []
-		for i, val in enumerate(nums):
-			a = nums[:i] + nums[i+1:]
-
-			for y in self.permute(a):
-				memo.append([val]+y)
-
-		return memo
-
-
-
-p1 = Solution()
-p1.permute([1,2,3])
 
 
 
@@ -466,23 +422,6 @@ class Solution:
 
 p1 = Solution()
 p1.isAnagram("anagram", "nagaramp")
-
-
-class Solution:
-	def permute(self, nums):
-		if len(nums) < 2:
-			return nums
-
-
-		memo = []
-		for i, val in enumerate(nums):
-			a = nums[:i] + nums[i+1:]
-			for y in self.permute(a):
-				memo.append([val]+y)
-		return memo
-
-p1 = Solution()
-p1.permute([1,2,3])
 
 
 
@@ -680,82 +619,6 @@ p1 = Solution()
 p1.backTrack(6)
 
 
-
-# Iterative
-class Solution:
-	def preorder_Iterative(self, root):
-		if root is None:
-			return []
-		curr, stack, results = root, [], []
-		while curr or stack:
-			if curr is None:
-				curr = stack.pop()
-			while curr:
-				results.append(curr.val)
-				if curr.right:
-					stack.append(curr.right)
-				curr = curr.left
-		return results
-
-p2 = TreeNode(3)
-p1 = TreeNode(2, p2)
-Tree = TreeNode(1,None, p1)
-Run = Solution()
-Run.preorder_Iterative(Tree)
-
-
-
-
-########## Test for Balance BST 
-class Solution:
-	def get_height(self, root):
-		if root is None:
-			return 0
-		return 1 + max(self.height(root.left),  self.height(root.right))
-
-
-	def is_balanced(self, root):
-		if root is None:
-			return True
-		return (self.is_balanced(root.right) and self.is_balanced(root.left) 
-		  and (abs(self.get_height(root.left) - self.get_height(root.right)) <= 1))
-
-
-Run = Solution()
-Run.balance(Tree)
-
-
-
-################################################
-# Completed Leetcode at work Not submitted
-# 26. Remove Duplicates from sorted array
-################################################
-# Own - Solution
-# uses an additional list - which I don't think is accepted
-class Solution:
-	def removeDuplicates(self, nums):
-		memo = []
-		for i in range(len(nums)-1):
-			if nums[i] != nums[i+1]:
-				memo.append(nums[i])
-		memo.append(nums[-1])
-		return len(memo), memo
-
-# Leetcode - Solution - using two pointers
-class Solution:
-	def removeDuplicates2(self, nums):
-		if len(nums) == 0: return 0
-		i = 0							# Two pointers, "i" is the slow runner, "j" is the fast
-		for j in range(1, len(nums)):
-			if nums[j] != nums[i]:
-				i += 1
-				nums[i] = nums[j]
-		return i + 1
-
-Run = Solution()
-Run.removeDuplicates2([0,0,1,1,1,2,2,3,3,4])
-
-
 #########################
 
 # Topological sort from GeeksforGeeks
@@ -852,39 +715,6 @@ class Solution:
 
 Run = Solution()
 Run.fibonacci(10)
-
-###############
-###############
-
-class Solution:
-	def pre(self, root):
-		if root is None:
-			return []
-		curr, stack, result = root, [], []
-		while curr or stack:
-			if curr is None:
-				curr = stack.pop()
-			while curr:
-				result.append(curr.val)
-				if curr.right:
-					stack.append(curr.right)
-				curr = curr.left
-		return result
-
-
-
-class Solution:
-	def inO(self, root):
-		if root is None:
-			return []
-		curr, stack, result = root, [], []
-		while curr or stack:
-			while curr:
-				stack.append(curr)
-				curr = curr.left
-			curr = stack.pop()
-			result.append(curr.val)
-			curr = curr.left
 
 ###############
 # Second Smallest from Array
@@ -1061,15 +891,3 @@ p1 = TreeNode(9)
 Tree = TreeNode(3, p1, p2)
 Run = Solution()
 Run.SumofLeftLeaves(Tree)
-
-# Leetcode - 237 - Delete Node in a Linked List
-# Node is just a reference.
-# The premise is to change the current node's pointer to the next value.
-# And to change the next values pointer to node.next.next
-
-class Solution:
-	def deleteNode(self, node):
-		node = node.next.val
-		node.next = node.next.next
-
-

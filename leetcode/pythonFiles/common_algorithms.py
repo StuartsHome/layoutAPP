@@ -111,3 +111,33 @@ class Solution:
 
 p1 = Solution()
 p1.binary_search([10,20,30,40,50], 50)
+
+
+################################################
+# Completed Leetcode at work Not submitted
+# 26. Remove Duplicates from sorted array
+################################################
+# Own - Solution
+# uses an additional list - which I don't think is accepted
+class Solution:
+	def removeDuplicates(self, nums):
+		memo = []
+		for i in range(len(nums)-1):
+			if nums[i] != nums[i+1]:
+				memo.append(nums[i])
+		memo.append(nums[-1])
+		return len(memo), memo
+
+# Leetcode - Solution - using two pointers
+class Solution:
+	def removeDuplicates2(self, nums):
+		if len(nums) == 0: return 0
+		i = 0							# Two pointers, "i" is the slow runner, "j" is the fast
+		for j in range(1, len(nums)):
+			if nums[j] != nums[i]:
+				i += 1
+				nums[i] = nums[j]
+		return i + 1
+
+Run = Solution()
+Run.removeDuplicates2([0,0,1,1,1,2,2,3,3,4])
