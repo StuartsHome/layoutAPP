@@ -1,3 +1,4 @@
+# Requires a Return statement at the end to end the loop
 class Solution:
 	def permute(self, nums):
 		if len(nums) <= 1:
@@ -38,6 +39,7 @@ p1.permute([1,2,3])
 
 
 ##### Alternative approach to Leetcode 46. Permutations
+# This solution doesn't require a return at the end
 class Solution:
     def permute(self, nums):
         visited = set()
