@@ -3,7 +3,7 @@ from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
 # Have to set the environment variable for it to work
-#os.environ['SENDGRID_API_KEY'] = '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'
+#
 
 message = Mail(
     from_email = '?',
